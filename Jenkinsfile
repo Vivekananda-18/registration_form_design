@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
+
         stage('Clone Repository') {
             steps {
-                echo 'Cloning code...'
+                git 'https://github.com/Vivekananda-18/registration_form_design.git'
             }
         }
 
@@ -22,7 +23,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploying project...'
+                sh 'sudo cp -r * /var/www/html/'
             }
         }
     }
